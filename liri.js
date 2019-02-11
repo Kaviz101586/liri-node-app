@@ -30,26 +30,24 @@ switch (command) {
 }
 
 function concertThis() {
-    var output = []
     var max = 7
     axios.get("https://rest.bandsintown.com/artists/" + info + "/events?app_id=codingbootcamp")
     .then(function(response) {
-        if (response.data.length === 0) {
-            console.log("No upcoming events");
-        }
+        for(i=0; i<max; i++) {
+            if (response.data.length === 0) {
+                console.log("No upcoming events");
+            }
 
-        else if (response.data.length === 7) {
-            for (var i = 0; i < 7; i++)
-                request = ("======================="+"\n"+"Venue: "+response.data[i].venue.name+"\n"+"In: "+response.data[i].venue.city+", "+response.data[i].venue.region+"\n"+"At: "+moment(response.data[i].datetime).format('MM-DD-YYYY')+"\n"+"=======================")
-                output.push(request);
-                console.log(request);
-        }
+            else if (response.data.length === 7) {
+                for (var i = 0; i < 7; i++)
+                    console.log("======================="+"\n"+"Venue: "+response.data[i].venue.name+"\n"+"In: "+response.data[i].venue.city+", "+response.data[i].venue.country+"\n"+"At: "+moment(response.data[i].datetime).format('MM-DD-YYYY')+"\n"+"=======================")
+            }
 
-        else {
-            for (var i = 0; i < max; i++)
-            request = ("======================="+"\n"+"Venue: "+response.data[i].venue.name+"\n"+"In: "+response.data[i].venue.city+", "+response.data[i].venue.region+"\n"+"At: "+moment(response.data[i].datetime).format('MM-DD-YYYY')+"\n"+"=======================")
-                output.push(request);
-                console.log(request);
+            else {
+                for (var i = 0; i < max; i++)
+                    console.log("======================="+"\n"+"Venue: "+response.data[i].venue.name+"\n"+"In: "+response.data[i].venue.city+", "+response.data[i].venue.country+"\n"+"At: "+moment(response.data[i].datetime).format('MM-DD-YYYY')+"\n"+"=======================")
+            }   
+
         }
     });
 };
