@@ -23,5 +23,3 @@ Using the command "do-what-it-says", the app will run the "spotify-this-song" co
 _Note: No info is required for the do-what-it-says command_
 
 ![DWIS](https://github.com/Kaviz101586/liri-node-app/blob/master/assets/images/do-what-it-says.PNG)
-
-
